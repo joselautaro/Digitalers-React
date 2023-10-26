@@ -4,14 +4,16 @@ import {HolaMundo} from './components/HolaMundo/HolaMundo'
 import './App.css';
 import { Counter } from "./components/Counter/Counter";
 import { Theme } from "./components/Theme/Theme";
+import { PokeApi } from "./components/PokeApi/PokeApi";
 
 function App() {
 
   return (
     <>
-      <HolaMundo/>
+      {/* <HolaMundo/>
       <Counter/>
-      <Theme/>
+      <Theme/> */}
+      <PokeApi/>
     </>
   )
 }
