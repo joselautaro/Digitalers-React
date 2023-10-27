@@ -5,6 +5,7 @@ import './App.css';
 import { Counter } from "./components/Counter/Counter";
 import { Theme } from "./components/Theme/Theme";
 import { PokeApi } from "./components/PokeApi/PokeApi";
+import { ProductList } from "./components/ProductList/ProductList";
 
 function App() {
 
@@ -13,7 +14,8 @@ function App() {
       {/* <HolaMundo/>
       <Counter/>
       <Theme/> */}
-      <PokeApi/>
+      {/* <PokeApi/> */}
+      <ProductList/>
     </>
   )
 }
