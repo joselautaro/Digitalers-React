@@ -1,81 +1,8 @@
-// import React, { useState, useEffect } from 'react'
-// import { pedirProductos } from '../../helpers/pedirProductos';
-// import Swal from 'sweetalert2'
-
-// export const ProductList = () => {
-
-//     const [loading, setLoading] = useState(false);
-
-//     const [items, setItems] = useState([]);
-
-
-//     useEffect(() => {
-//         setLoading(true)
-//         pedirProductos()
-//             .then((res) => {
-//                 setItems(res)
-//             })
-//             .catch((error) => {
-//                 Swal.fire({
-//                     icon: 'error',
-//                     title: '¡Cuidado, tenés un error en la carga!',
-//                     text: `Tenés un error: ${error}`
-//                 })
-//             })
-//             .finally(() => {
-//                 setLoading(false)
-//             })
-//     }, [])
-
-//     return (
-//         <>
-//             {
-//                 loading
-//                 ?
-                
-//                 Swal.fire({
-//                     timer: 500,
-//                     timerProgressBar: true,
-//                     didOpen: () => {
-//                       Swal.showLoading()
-//                       const b = Swal.getHtmlContainer().querySelector('b')
-//                       timerInterval = setInterval(() => {
-//                         b.textContent = Swal.getTimerLeft()
-//                       }, 100)
-//                     },
-//                     willClose: () => {
-//                       clearInterval(timerInterval)
-//                     }
-//                   }).then((result) => {
-//                     /* Read more about handling dismissals below */
-//                     if (result.dismiss === Swal.DismissReason.timer) {
-//                       console.log('I was closed by the timer')
-//                     }
-//                   })
-//                 :(
-//                     <div className='card'>
-//                         {
-//                             items.map((item) =>(
-//                                 <div key={item.id}>
-//                                     <img src={item.photo} alt={item.photo} />
-//                                     <p>{item.name}</p>
-//                                     <p>{item.description}</p>
-//                                     <p>{item.category}</p>
-//                                 </div>
-//                             ))
-//                         }
-
-//                     </div>
-//                 )
-//             }
-
-//         </>
-//     )
-// }
-
 import React, { useState, useEffect } from 'react';
 import { pedirProductos } from '../../helpers/pedirProductos';
+import './style.css'
 import Swal from 'sweetalert2';
+import { Counter } from '../Counter/Counter';
 
 export const ProductList = () => {
     const [loading, setLoading] = useState(false);
@@ -105,13 +32,15 @@ export const ProductList = () => {
                 // Aquí puedes mostrar una pantalla de carga
                 <div>Cargando...</div>
             ) : (
-                <div className='card'>
+                <div className='card-list'>
                     {items.map((item) => (
-                        <div key={item.id}>
+                        <div key={item.id} className='card'>
                             <img src={item.photo} alt={item.photo} />
                             <p>{item.name}</p>
                             <p>{item.description}</p>
+                            <h5>${item.price}</h5>
                             <p>{item.category}</p>
+                            <Counter/>
                         </div>
                     ))}
                 </div>

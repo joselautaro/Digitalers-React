@@ -1,0 +1,19 @@
+.card-list{
+    display: flex;
+    justify-content: space-around;
+}
+.card-list .card{
+    margin: 10px;
+    border: 2px solid rgb(0, 0, 0);
+    background-color: rgb(68, 53, 53);
+    border-radius: 10px;
+    width: 300px;
+}
+.card-list img{
+    border-radius: 10px;
+    width: 100%;
+}
+p, h5{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: azure;
+}   
